@@ -15,8 +15,8 @@ load_dotenv()
 
 
 def run_function():
-    schedule.every().day.at('11:32').do(create_dump)
-    schedule.every().day.at('11:32').do(scrape_auto_ria)
+    schedule.every().day.at(os.getenv('START_TIME')).do(create_dump)
+    schedule.every().day.at(os.getenv('START_TIME')).do(scrape_auto_ria)
     while True:
         schedule.run_pending()
 
